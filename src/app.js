@@ -7,7 +7,7 @@ const foreCast = require('./utils/forecast')
 
 
 const app = express()
-
+const port = process.env.PORT || 3000
 
 //Customize paths
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -111,6 +111,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Started Server")
 })
