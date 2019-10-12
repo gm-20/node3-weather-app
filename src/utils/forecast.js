@@ -13,7 +13,9 @@ const foreCast = (latitude,longitude,callback)=>{
         }else{
             callback(undefined,{
                 temperature: response.body.currently.temperature,
-                precipitation: response.body.currently.precipProbability
+                precipitation: response.body.currently.precipProbability,
+                max_temp : response.body.daily.data[0].temperatureHigh,
+                min_temp : response.body.daily.data[0].temperatureLow
             })
         }
     })

@@ -40,7 +40,7 @@ weatherForm.addEventListener('submit',(e)=>{
         if(data.error){
             messageOne.textContent = data.error
         }else{
-            messageOne.textContent = 'Temperature : ' + data.forecast.temperature + '    , Rain Probability : ' + data.forecast.precipitation + '%'
+            messageOne.textContent = 'Temperature : ' + data.forecast.temperature + '    , Rain Probability : ' + data.forecast.precipitation + '%    ,' + '    Max Temp : ' + data.forecast.max_temp + '    ,Min Temp : '  + data.forecast.min_temp
             messageTwo.textContent = data.location
         }
         
