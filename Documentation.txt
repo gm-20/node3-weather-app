@@ -1,0 +1,77 @@
+
+Objective:
+This is a Weather app which takes location from the user and provide temperature and rain probability of the location.
+
+Backend:
+
+Used express server to setup web environment.
+Used hbs library to setup handlebars(Used for dynamic templating).
+Used request library for asynchronous http request.
+
+Synchronous: A synchronous request blocks the client until operation completes. In such case, javascript engine of the browser is blocked.
+
+Asynchronous An asynchronous request doesn’t block the client i.e. browser is responsive. At that time, user can perform another operations also.
+In such case, javascript engine of the browser is not blocked.
+
+
+Used 2 API's:
+Mapbox --> It takes location and provide the respective coordinates of that place.
+Darknet --> It takes coordinates and provide the temperature and rain probability of that place.
+
+Called both API's with callback in order to have a non-blocking execution.
+
+
+Frontend:
+
+
+Used handlebars to make the pages dynamic.
+Setup partial views to use them in other templates.
+
+Used fetch HTTP request to take request from frontend to backend routes.
+
+
+Git and SSH:
+
+Generated SSH keys for secure connection between local computer and 3rd party server.(Using Git Bash)
+--> ssh-keygen -t rsa -b 4096 -C "rock.gm.9755@gmail.com"
+--> eval $(ssh-agent -s)
+--> ssh-add ~/.ssh/id_rsa
+
+Setup the generated SSH key in github and heroku.
+
+Setup git-scm for version control.
+
+Setup git locally
+--> git init
+--> git status
+--> Make .gitignore file and put the files whose tracking not required. for example node_modules
+--> Initially all are untracked files
+--> To move to staged set --> git add .
+--> To move to commited stage --> git commit -m "First Init"
+
+
+
+Used github repo : https://github.com/gm-20/node3-weather-app to store code in github.
+
+To push local changes to github:
+--> git remote add origin https://github.com/gm-20/node3-weather-app
+--> ssh -T git@github.com
+--> git push -u origin master
+
+
+Deployment:
+
+--> heroku login
+--> heroku keys:add
+
+--> heroku create app_name
+
+--> Changes to package.json
+    "scripts": {
+    "start" : "node src/app.js",
+    "dev" : "nodemon src/app.js -e js,hbs"
+    }
+
+--> Change port  --> port = process.env.PORT
+
+--> git push heroku master
